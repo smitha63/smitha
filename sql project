@@ -1,0 +1,252 @@
+
+SELECT * FROM movies.role;
+
+SELECT * FROM movies.role where roleID='21';
+SELECT * FROM movies.role where role like '%%';
+SELECT * FROM movies.role where roleID='21';
+select * FROM movies.role where film_id in ( select role_id  FROM movies.film);
+select * FROM movies.role where role <>'RAMRAJ';
+select * from movies.role a,  movies.film b 
+where a.role_id=b.role_id;
+
+select * from movies.role where roleID>=100
+and role is not  null;
+
+select count(role_id) from movies.role 
+where actor_id='1231' ;
+
+select * from movies.director a,  movies.film b ,movies.role c
+where a.role_id=b.role_id and c.filmid=a.filmid;
+
+select * from movies.role  where roleid not in ( 
+select roleid from movies.film);
+
+
+select roleid,count(role) from movies.role
+group by roleid;
+
+select * from movies.role where roleid is not null 
+and role is null;
+
+select * from movies.role a inner join movies.film b on
+a.roleid=b.roleid and b.releasedate>='01-JAN-2023';
+
+select * from movies.role a LEFT join movies.film b on
+a.roleid=b.roleid and b.releasedate>='01-JAN-2023'
+and review is null;
+
+select * from movies.role where substr(role,1,3)='fat';
+
+select  * from movies.role where exists (
+select * from movies.film);
+
+select case when role='hero' then 'h'
+else 'o' end from movies.role;
+
+select avg(roleID) from movies.role;
+ 
+select * from  movies.role where roleid is not null
+order by role desc;
+
+
+
+SELECT * FROM movies.actor;
+
+SELECT * FROM movies.actor where actorID='21';
+SELECT * FROM movies.actor where actor like '%%';
+SELECT * FROM movies.actor where actorID='21';
+select * FROM movies.actor where actorID in ( select actor_id  FROM movies.film);
+select * FROM movies.actor where firstname <>'RAMRAJ';
+select * from movies.actor a,  movies.film b 
+where a.actor_id=b.actor_id;
+
+select * from movies.actor where actorID>=100
+and actor is not  null;
+
+select count(actor_id) from movies.actor 
+where gender='male';
+
+select * from movies.director a,  movies.film b ,movies.actor c
+where a.actor_id=b.actor_id and c.actorID=a.actorID;
+
+select * from movies.actor  where actorid not in ( 
+select actorid from movies.film);
+
+
+select actorid,count(actor) from movies.actor
+group by actorid;
+
+select * from movies.actor where actorid is not null 
+and actor is null;
+
+select * from movies.actor a inner join movies.film b on
+a.actorid=b.actorid and b.releasedate>='01-JAN-2023';
+
+select * from movies.actor a LEFT join movies.film b on
+a.actorid=b.actorid and b.releasedate>='01-JAN-2023'
+and review is null;
+
+select * from movies.actor where substr(family_name,1,3)='JAY';
+
+select  * from movies.actor where exists (
+select * from movies.film);
+
+select case when gender='MALE' then 'M'
+else 'F' end from movies.actor;
+
+select avg(actorID) from movies.actor;
+ 
+select * from  movies.actor where actorid is not null
+order by actor desc;
+
+SELECT * FROM movies.certificate;
+
+SELECT * FROM movies.certificate where certificateID='21';
+SELECT * FROM movies.certificate where certificate like '%%';
+SELECT * FROM movies.certificate where certificateID='21';
+select * FROM movies.certificate where certificateID in ( select certificate_id  FROM movies.film);
+select * FROM movies.certificate where firstname <>'RAMRAJ';
+select * from movies.certificate a,  movies.film b 
+where a.certificate_id=b.certificate_id;
+
+select * from movies.certificate where CertificateID>=100
+and certificate is not  null;
+
+select count(certificate_id) from movies.certificate 
+where cerificate='U';
+
+select * from movies.director a,  movies.film b ,movies.certificate c
+where a.certificate_id=b.certificate_id and c.CertificateID=a.CertificateID;
+
+select * from movies.certificate  where certificateid not in ( 
+select certificateid from movies.film);
+
+
+select certificateid,count(certificate) from movies.certificate
+group by certificateid;
+
+select * from movies.certificate where certificateid is not null 
+and certificate is null;
+
+select * from movies.certificate a inner join movies.film b on
+a.certificateid=b.certificateid and b.releasedate>='01-JAN-2023';
+
+select * from movies.certificate a LEFT join movies.film b on
+a.certificateid=b.certificateid and b.releasedate>='01-JAN-2023'
+and review is null;
+
+select * from movies.certificate where substr(certificate,1,3);
+
+select  * from movies.certificate where exists (
+select * from movies.film);
+
+select case when cerificate='U' then 'U'
+else 'A' end from movies.certificate;
+
+select avg(certificateID) from movies.certificate;
+ 
+select * from  movies.certificate where certificateid is not null
+order by certificate desc;
+
+SELECT * FROM movies.director;
+
+SELECT * FROM movies.director where directorID='21';
+SELECT * FROM movies.director where FullName like '%%';
+SELECT * FROM movies.director where directorID='21';
+select * FROM movies.director where DirectorID in ( select director_id  FROM movies.film);
+select * FROM movies.director where firstname <>'RAMRAJ';
+select * from movies.director a,  movies.film b 
+where a.director_id=b.director_id;
+
+select * from movies.director where dob>='01-JAN-199'
+and gender is null;
+
+select count(director_id) from movies.director 
+where gender='MALE';
+
+select * from movies.director a,  movies.film b ,movies.certificate c
+where a.director_id=b.director_id and c.CertificateID=a.CertificateID;
+
+select * from movies.director  where directorid not in ( 
+select directorid from movies.film);
+
+
+select directorid,count(family_name) from movies.director
+group by directorid;
+
+select * from movies.director where familyname is not null 
+and Review is null;
+
+select * from movies.director a inner join movies.film b on
+a.directorid=b.directorid and b.releasedate>='01-JAN-2023';
+
+select * from movies.director a LEFT join movies.film b on
+a.directorid=b.directorid and b.releasedate>='01-JAN-2023'
+and review is null;
+
+select * from movies.director where substr(familyname,1,3);
+
+select  * from movies.director where exists (
+select * from movies.film);
+
+select case when familyname='kapoor' then 'K'
+else 'O' end from movies.director;
+
+select avg(DirectorID) from movies.director;
+ 
+select * from  movies.director where gender is not null
+order by firstname desc;
+
+
+SELECT * FROM movies.film;
+
+SELECT * FROM movies.film where FilmID='21';
+SELECT * FROM movies.film where title like '%%';
+SELECT * FROM movies.film where FilmID='21';
+select * FROM movies.film where DirectorID in ( select director_id  FROM movies.director);
+select * FROM movies.film where StudioID <>'RAMRAJ';
+select * from movies.film a,  movies.director b 
+where a.director_id=b.director_id;
+
+select * from movies.film where budgetdollars>='10000'
+and OscarNominations is null;
+
+select count(oscarwins) from movies.film 
+where runminutes>='10:00:10';
+
+select * from movies.film a,  movies.director b ,movies.certificate c
+where a.director_id=b.director_id and c.CertificateID=a.CertificateID;
+
+select * from movies.film  where CertificateID in ( 
+select CertificateID from movies.certificate);
+
+
+select filmid,count(1) from movies.film
+group by filmid;
+
+select * from movies.film where LanguageID='Kannada'
+and Review is null;
+
+select * from movies.film a inner join movies.director b on
+a.directorid=b.directorid and a.releasedate>='01-JAN-2023';
+
+select * from movies.film a LEFT join movies.director b on
+a.directorid=b.directorid and a.releasedate>='01-JAN-2023'
+and review is null;
+
+select * from movies.film where substr(lanugae_id,1,3);
+
+select  * from movies.film where exists (
+select * from movies.director);
+
+select case when laungeid='KKANDA' then 'K'
+else 'O' end from movies.film;
+
+select avg(boxofficedollars) from movies.film;
+ 
+select * from  movies.film where country_id is not null
+order by releasedate desc;
+
+
+
+
